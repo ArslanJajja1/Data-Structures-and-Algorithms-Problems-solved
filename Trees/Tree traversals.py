@@ -46,6 +46,14 @@ class Node:
             result = result+self.preorder(root.right)
         return result
 
+    def postorder(self, root):
+        result = []
+        if root:
+            result = self.postorder(root.left)
+            result = result+self.postorder(root.right)
+            result.append(root.data)
+        return result
+
 
 root = Node(27)
 root.insert(14)
@@ -57,3 +65,4 @@ root.insert(42)
 root.printTheTree()
 print(root.inorder(root))
 print(root.preorder(root))
+print(root.postorder(root))
