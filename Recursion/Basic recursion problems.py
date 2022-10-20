@@ -28,3 +28,24 @@
 #         return
 #     printNto1(n-1)
 # printNto1(10)
+# *! Some of first N numbers
+def AddFirstNnumbers(n, sum):
+    if n == 0:
+        return sum
+    return AddFirstNnumbers(n-1, sum+n)
+
+
+print(AddFirstNnumbers(5, 0))
+
+sum = 0
+
+
+def sumNnumbers(n):
+    global sum
+    if n == 0:
+        return sum
+    sum += n
+    return sumNnumbers(n-1)
+
+
+print(sumNnumbers(5))
