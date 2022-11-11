@@ -1,4 +1,4 @@
-class Array:
+class Stack:
     def __init__(self, size) -> None:
         self.arr = [None]*size
         self.top = -1
@@ -33,16 +33,16 @@ class Array:
             print(self.arr[i])
 
 
-arr1 = Array(6)
-print(arr1.isEmpty())
-arr1.push(1)
-arr1.push(2)
-arr1.push(3)
-arr1.push(4)
-arr1.push(5)
-arr1.push(5)
-print(arr1.isEmpty())
-arr1.printStack()
-print(arr1.pop())
-print(arr1.pop())
-print(arr1.topElement())
+stack1 = Stack(6)
+print(stack1.isEmpty())
+stack1.push(1)
+stack1.push(2)
+stack1.push(3)
+stack1.push(4)
+stack1.push(5)
+stack1.push(5)
+print(stack1.isEmpty())
+stack1.printStack()
+print(stack1.pop())
+print(stack1.pop())
+print(stack1.topElement())
