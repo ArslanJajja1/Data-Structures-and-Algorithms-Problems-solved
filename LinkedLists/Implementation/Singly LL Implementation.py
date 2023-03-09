@@ -54,7 +54,7 @@ class LinkedList:
     # * O(1)
 
     def removeAtIndex(self, index) -> None:
-        temp = self.head
+        temp = self.head        
         iter = 0
         while iter != index-1:
             iter = iter+1

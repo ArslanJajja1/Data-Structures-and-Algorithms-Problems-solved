@@ -5,7 +5,7 @@
 #         self.queue2 = []
 
 #     def push(self, value):
-#         # add value in queue 2
+#         # add value in queue 2        
 #         self.queue2.append(value)
 #         # add queue 1 values in queue 2
 #         for i in range(0, len(self.queue1)):
