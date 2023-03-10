@@ -68,6 +68,6 @@ print(smallest_subarray_optimized([2, 1, 5, 2, 8], 7))
 print(smallest_subarray_optimized([3, 4, 1, 1, 6], 8))
 
 
-#  ⁡⁢⁣⁣Time Complexity⁡⁡ : ⁡⁣⁢⁣The time complexity for this solution will be O(n) which will be linear time as we are looping through the arrar only once ; ⁡
+# ⁡⁣⁢⁡⁢⁣⁣Time Complexity ⁡: ⁡⁣⁢⁣The time complexity of the above algorithm will be O(N). The outer for loop runs for all elements and the inner while loop processes each element only once, therefore the time complexity of the algorithm will be O(N+N) which is asymptotically equivalent to O(N).⁡
 
-# ⁡⁢⁣⁣Space Complexity ⁡: T⁡⁣⁢⁣he space complexity for the above solution will be 0(1) which is a constant time as we are not using any extra space ;⁡
+# ⁡⁢⁣⁣Space Complexity⁡ : T⁡⁣⁢⁣he algorithm runs in constant space O(1).⁡
