@@ -19,11 +19,11 @@
 # Output: 3
 # Explanation: Smallest subarrays with a sum greater than or equal to '8' are [3, 4, 1] or [1, 1, 6].⁡
 
-# ⁡⁣⁣ Brute Force :
+# ⁡⁣⁣ ⁡⁣⁣⁢Brute Force :⁡
 import math
 
 
-def smallest_subarray(arr, s):
+def smallest_subarray_bf(arr, s):
     minLength = math.inf
     for i in range(len(arr)):
         windowLength = 0
@@ -37,10 +37,37 @@ def smallest_subarray(arr, s):
     return minLength
 
 
-print(smallest_subarray([2, 1, 5, 2, 3, 2], 7))
-print(smallest_subarray([2, 1, 5, 2, 8], 7))
-print(smallest_subarray([3, 4, 1, 1, 6], 8))
+print("Brute force solution ---> ")
+
+print(smallest_subarray_bf([2, 1, 5, 2, 3, 2], 7))
+print(smallest_subarray_bf([2, 1, 5, 2, 8], 7))
+print(smallest_subarray_bf([3, 4, 1, 1, 6], 8))
 
 # ⁡⁢⁣⁣Time Complexity :⁡ ⁡⁣⁢⁣The time complexity for this solution will be O(n^2) because we are using nested loops to find the min length for each subarray. For each n, the nested loop run n times ;⁡
 
 # ⁡⁢⁣⁣Space Complexity ⁡: ⁡⁣⁢⁣The space complexity for this solution will be O(1)  which is a constant time because we are not using any extra space in this solution ;⁡
+
+# ⁡⁣⁣⁢Optimized solution using sliding window approach⁡ :
+
+
+def smallest_subarray_optimized(arr, s):
+    windowStart, windowSum = 0, 0
+    minLength = math.inf
+    for windowEnd in range(len(arr)):
+        windowSum += arr[windowEnd]
+        while windowSum >= s:
+            minLength = min(minLength, windowEnd-windowStart+1)
+            windowSum -= arr[windowStart]
+            windowStart += 1
+    return minLength
+
+
+print("Optimized solution ---> ")
+print(smallest_subarray_optimized([2, 1, 5, 2, 3, 2], 7))
+print(smallest_subarray_optimized([2, 1, 5, 2, 8], 7))
+print(smallest_subarray_optimized([3, 4, 1, 1, 6], 8))
+
+
+#  ⁡⁢⁣⁣Time Complexity⁡⁡ : ⁡⁣⁢⁣The time complexity for this solution will be O(n) which will be linear time as we are looping through the arrar only once ; ⁡
+
+# ⁡⁢⁣⁣Space Complexity ⁡: T⁡⁣⁢⁣he space complexity for the above solution will be 0(1) which is a constant time as we are not using any extra space ;⁡
