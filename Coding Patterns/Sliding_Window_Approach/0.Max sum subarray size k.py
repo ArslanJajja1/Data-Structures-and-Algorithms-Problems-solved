@@ -32,3 +32,25 @@ print(maxSumSubarray([2, 3, 4, 1, 5], 2))
 # ⁡⁢⁣⁣Time Complexity⁡ : T⁡⁣⁢⁣he time complexity for this solution will be o(n^2) because we are using nested loops in the solution to find the window sum ;⁡
 
 # ⁡⁢⁣⁣Space Complexity ⁡: T⁡⁣⁢⁣he space complexity for this solution will be O(1) which is a constant time because we are not using any extra space ;⁡
+
+# ⁡⁣⁣⁢Optimized way to solve this problem using sliding window approach⁡
+
+
+def maxSumSubarrayOptimized(arr, k):
+    windowStart, windowSum, maxSum = 0, 0, 0
+    for windowEnd in range(len(arr)):
+        windowSum += arr[windowEnd]
+        if (windowEnd >= k-1):
+            maxSum = max(maxSum, windowSum)
+            windowSum -= arr[windowStart]
+            windowStart += 1
+    return maxSum
+
+
+print(maxSumSubarrayOptimized([2, 1, 5, 1, 3, 2], 3))
+print(maxSumSubarrayOptimized([2, 3, 4, 1, 5], 2))
+
+# ⁡⁢⁣⁣Time Complexity ⁡: ⁡⁣⁢⁣The time complexity for this solution will be O(n) which is a linear time because we are using just one loop that is one pass to solve this problem ;
+# ⁡
+
+# ⁡⁢⁣⁣Space Complexity⁡ : ⁡⁣⁢⁣The space complexity for this solution will be O(1) which is a constant time because we are not using any extra space to solve this question ;⁡
