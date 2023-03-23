@@ -59,7 +59,7 @@ def smallest_subarray_optimized(arr, s):
             minLength = min(minLength, windowEnd-windowStart+1)
             windowSum -= arr[windowStart]
             windowStart += 1
-    return minLength
+    return 0 if minLength == math.inf else minLength
 
 
 print("Optimized solution ---> ")
