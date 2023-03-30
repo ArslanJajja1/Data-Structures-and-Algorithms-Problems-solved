@@ -13,3 +13,15 @@ def NGR1(arr):
     return output
 
 print(NGR1([3,5,7,4,8,9,2,6]))
+
+def NGR2(arr):
+    n = len(arr)
+    output = [-1]*n
+    stack = []
+    for i in range(0,n*2-1):
+        while stack and arr[stack[-1]] < arr[i%n]:
+            output[stack.pop()] = arr[i%n]
+        stack.append(i%n)
+    return output
+
+print(NGR2([3,5,7,4,8,9,2,6]))
