@@ -6,7 +6,7 @@ class Min_max_stack:
         self.min_max_stack = []
     def push(self,val):
         new_min_max = {"min":val,"max":val}
-        if len(Min_max_stack):
+        if len(self.min_max_stack):
             old_min_max = self.min_max_stack[len(self.min_max_stack)-1]
             new_min_max["min"] = min(val,old_min_max["min"])
             new_min_max["max"] = max(val,old_min_max["max"])
