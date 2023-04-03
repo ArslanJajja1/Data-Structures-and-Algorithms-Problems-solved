@@ -25,4 +25,4 @@ print(rotated_array_count([]))
 print(rotated_array_count([5,6,7,2,4]))
 
 # SC : O(1)
-# TC : O(n)
+# TC : O(logn)
