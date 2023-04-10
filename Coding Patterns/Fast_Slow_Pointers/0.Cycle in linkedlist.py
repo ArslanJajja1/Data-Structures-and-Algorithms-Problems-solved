@@ -24,3 +24,6 @@ def main():
     head.next.next.next.next.next = head.next.next
     print("Has cycle ", str(check_cycle(head)))
 main()
+
+# TC : O(n)
+# SC : O(1)
