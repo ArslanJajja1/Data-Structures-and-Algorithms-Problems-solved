@@ -17,9 +17,18 @@ class Solution:
         # return prev
 # TC : O(N)
 # SC : O(1)
+        # if not head:
+        #     return prev
+        # nextNode=head.next
+        # head.next=prev
+        # return self.reverseList(nextNode,head)
 
+        # Recursive way
         if not head:
-            return prev
-        nextNode=head.next
-        head.next=prev
-        return self.reverseList(nextNode,head)
+            return None
+        new_head = head
+        if head.next:
+            new_head = self.reverseList(head.next)
+            head.next.next = head
+        head.next = None
+        return new_head
