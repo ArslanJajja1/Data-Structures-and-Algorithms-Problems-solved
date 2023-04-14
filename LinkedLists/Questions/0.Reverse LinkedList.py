@@ -73,7 +73,7 @@ class LinkedList:
             temp = temp.next
             iter += 1
     # * Reverse a linked list iteratively
-
+    # *  TC : O(N) , SC : O(1)
     def reverseLlIteratively(self):
         prev = None
         if not self.head:
@@ -85,13 +85,17 @@ class LinkedList:
             self.head = nextNode
         self.head = prev
         return prev
-
-    def reverseListRecursively(self, head, prev=None):
+    # *  TC : O(N) , SC : O(N)
+    def reverseListRecursively(self, head):
         if not head:
-            return prev
-        nextNode = head.next
-        head.next = prev
-        return self.reverseListRecursively(nextNode, head)
+            return 
+        new_head = head
+        if head.next:
+            new_head = self.reverseListRecursively(head.next)
+            head.next.next = head
+        head.next = None
+        return new_head
+
 
 
 ll = LinkedList(2)
