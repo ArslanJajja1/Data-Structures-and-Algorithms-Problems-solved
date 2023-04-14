@@ -13,6 +13,7 @@ class LinkedList:
         self.head.previous = self.dummy
         self.tail = self.head
         self.length = 1
+
     # * O(1)
 
     def addAtEnd(self, value) -> None:
@@ -28,6 +29,7 @@ class LinkedList:
         previousNode.next = self.tail.next
         self.tail = previousNode
         self.length -= 1
+
     # *  O(1)
 
     def addAtStart(self, value) -> None:
@@ -45,7 +47,8 @@ class LinkedList:
         self.dummy.next = self.head
         self.head.previous = self.dummy
         self.length -= 1
-    # * O(1)
+
+    # * O(N)
 
     def addAtIndex(self, index, value) -> None:
         temp = self.head
@@ -60,7 +63,8 @@ class LinkedList:
         newNode.next = nextNode
         nextNode.previous = newNode
         self.length += 1
-    # * O(1)
+
+    # * O(N)
 
     def removeAtIndex(self, index) -> None:
         temp = self.head
@@ -72,7 +76,8 @@ class LinkedList:
         temp.next = nodeToRemove.next
         nodeToRemove.next.previous = temp
         self.length -= 1
-    # * O(n)
+
+    # * O(N)
 
     def printLinkedList(self) -> None:
         temp = self.head
