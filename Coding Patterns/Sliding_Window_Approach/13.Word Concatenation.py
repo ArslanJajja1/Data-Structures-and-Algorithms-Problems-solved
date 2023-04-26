@@ -45,32 +45,45 @@
 # s and words[i] consist of lowercase English letters.
 
 
-def findSubstring(s: str, words: List[str]) -> List[int]:
-        window_start = 0
-        matched = 0
-        hashmap = {}
-        output = []
-        length_of_chars = 0
-        for char in words:
-            for c in char:
-                length_of_chars += 1
-                if c not in hashmap:
-                    hashmap[c] = 0
-                hashmap[c] += 1
-        
-        for window_end in range(len(s)):
-            right_char = s[window_end]
-            if right_char in hashmap:
-                hashmap[right_char] -= 1
-                if hashmap[right_char] == 0:
-                    matched += 1
-            if matched == len(hashmap):
-                output.append(window_start)
-            if window_end >= length_of_chars:
-                left_char = s[window_start]
-                window_start += 1
-                if left_char in hashmap:
-                    if hashmap[left_char]==0:
-                        matched -= 1
-                    hashmap[left_char] += 1
-        return output
+class Solution:
+    def findSubstring(self, s: str, words: List[str]) -> List[int]:
+        if not s or not len(words):
+           return []
+        words_freq = {}
+        word_length = len(words[0])
+        words_count = len(words)
+        total_length = word_length * words_count
+        result = []
+        for word in words:
+            if word not in words_freq:
+                words_freq[word] = 0
+            words_freq[word] += 1
+        for i in range(len(s)-total_length+1):
+            words_seen = {}
+            for j in range(0,words_count):
+                next_word_index = i+j*word_length
+                word = s[next_word_index:next_word_index+word_length]
+                if word not in words_freq:
+                    break
+                if word not in words_seen:
+                    words_seen[word] = 0
+                words_seen[word] += 1
+                if words_seen[word] > words_freq.get(word,0):
+                    break
+                if j+1 == words_count:
+                    result.append(i)
+        return result
+
+
+# Time Complexity #
+# The time complexity of the above algorithm will be O(N∗M∗Len) where ‘N’ is the number of characters in the given string, ‘M’ is the total number of words, and ‘Len’ is the length of a word.
+
+# Space Complexity #
+# The space complexity of the algorithm is O(M) since at most, we will be storing all the words in the two HashMaps. In the worst case, we also O(N) space for the resulting list. So, the overall space complexity of the algorithm will be O(M+N).
+
+
+
+
+
+
+
