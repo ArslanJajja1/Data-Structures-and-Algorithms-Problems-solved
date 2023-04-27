@@ -29,8 +29,9 @@
 # -1000 <= nums[i] <= 1000
 # -104 <= target <= 104
 
-def threeSumClosest(self, nums: List[int], target: int) -> int:
-        result = nums[0]+nums[1]+nums[len(nums)-1]
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        result = float('inf')
         nums.sort()
         for i in range(len(nums)-2):
             left = i+1
