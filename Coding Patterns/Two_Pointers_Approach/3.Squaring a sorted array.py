@@ -11,23 +11,24 @@
 # Output: [0 1 1 4 9]
 
 def squares_of_sorted_array(nums):
-    n = len(nums)
-    output = [0]*n
-    idx = n-1
-    left = 0
-    right = n-1
-    while left<=right:
-        left_square = nums[left]*nums[left]
-        right_square = nums[right]*nums[right]
-        if left_square>right_square:
-            output[idx] = left_square
-            left += 1
-            idx -= 1
-        else:
-            output[idx] = right_square
-            right -= 1
-            idx -= 1
-    return output
+        n = len(nums)
+        output = [None]*n
+        k = n-1
+        left = 0
+        right = n-1
+        while left <= right:
+            left_square = nums[left]*nums[left]
+            right_square = nums[right]*nums[right]
+            if right_square > left_square:
+                output[k] = right_square
+                k -= 1
+                right -= 1
+            else:
+                output[k] = left_square
+                k -= 1
+                left += 1
+        return output
+
 
 print(squares_of_sorted_array([-2, -1, 0, 2, 3]))
 print(squares_of_sorted_array([-3, -1, 0, 1, 2]))
