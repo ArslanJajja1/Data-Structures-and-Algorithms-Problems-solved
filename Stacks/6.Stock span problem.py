@@ -1,4 +1,4 @@
-# Stack span problem
+# Stock span problem
 # Input: N = 7, price[] = [100 80 60 70 60 75 85]
 # Output: 1 1 1 2 1 4 6
 # Explanation: Traversing the given input span for 100 will be 1, 80 is smaller than 100 so the span is 1, 60 is smaller than 80 so the span is 1, 70 is greater than 60 so the span is 2 and so on. Hence the output will be 1 1 1 2 1 4 6.
@@ -19,7 +19,7 @@ def next_greater_left(arr):
             ans[i] = stack[-1]
         stack.append(i)
     return ans
-def stack_span(price):
+def stock_span(price):
     n = len(price)
     output = [-1]*n
     ngl = next_greater_left(price)
@@ -28,6 +28,6 @@ def stack_span(price):
         print("i - ngl[i] => ","i = ",i,"ngl[i] = ",ngl[i], i - ngl[i])
     return output
 
-print(stack_span([100,80,60,70,60,75,85]))
-print(stack_span([10,4,5,90,120,80]))
+print(stock_span([100,80,60,70,60,75,85]))
+print(stock_span([10,4,5,90,120,80]))
 
