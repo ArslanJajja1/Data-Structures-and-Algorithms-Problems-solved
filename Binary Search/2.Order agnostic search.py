@@ -7,9 +7,9 @@ def order_agnostic_search(arr,target):
         else:
             return -1
     if arr[0] > arr[len(arr)-1]:
-        binary_search_asc(arr,target)
-    if arr[0] <= arr[len(arr)-1]:
         binary_search_desc(arr,target)
+    if arr[0] <= arr[len(arr)-1]:
+        binary_search_asc(arr,target)
 # Binary search in ascending order sorted array
 def binary_search_asc(arr,target):
     start = 0
