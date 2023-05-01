@@ -36,6 +36,7 @@
 
 # 1 <= k <= nums.length <= 1000
 # 0 <= nums[i] <= 105
+
 class Solution:
     def minimumDifference(self, nums: List[int], k: int) -> int:
         # [1,4,7,9]
