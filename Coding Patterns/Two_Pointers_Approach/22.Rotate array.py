@@ -41,6 +41,14 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        # O(N) Time AND O(N) Space solution
+        # res = [None]*len(nums)
+        # for i in range(len(nums)):
+        #     res[(i+k)*n] = nums[i]
+        # return res
+    
+        # Optimized solution
+
         k = k%len(nums)
         n = len(nums)-1
         if n == 0: return
