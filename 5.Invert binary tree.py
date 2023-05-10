@@ -34,8 +34,17 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+
 class Solution:
     def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        # Recursive
+
         if not root:
             return None
         temp = root.right
@@ -45,6 +54,27 @@ class Solution:
         self.invertTree(root.right)
         return root
         
+        # Iterative
+        def swap(node):
+            if not node:
+                return
+            temp = node.right
+            node.right = node.left
+            node.left = temp
 
-    # TC : O(N)
-    # SC : O(N)
+        if not root:
+            return None
+        q = collections.deque()
+        q.append(root)
+        
+        while q:
+            curr = q.popleft()
+            swap(curr)
+            if curr.left: q.append(curr.left)
+            if curr.right: q.append(curr.right)
+        return root
+        
+
+        # TC : O(N)
+        # SC : O(N)
+            
