@@ -50,5 +50,5 @@ class Solution:
         if (root.left == None and  root.right == None): return targetSum - root.val == 0
         return (self.hasPathSum(root.left,targetSum-root.val) or self.hasPathSum(root.right,targetSum-root.val))
  
-    # TC : O(logn)
-    # SC : O(logn)
+    # TC : O(N)
+    # SC : O(N)
