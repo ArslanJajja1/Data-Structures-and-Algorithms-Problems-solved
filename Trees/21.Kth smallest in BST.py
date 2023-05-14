@@ -47,5 +47,5 @@ class Solution:
             if k == 0:
                 return curr.val
             curr = curr.right
-        # TC : O(logn)
-        # SC : O(logn)
+        # TC : O(h+k)
+        # SC : O(h)
