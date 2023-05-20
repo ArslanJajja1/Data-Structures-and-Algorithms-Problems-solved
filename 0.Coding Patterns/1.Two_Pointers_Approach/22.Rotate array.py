@@ -44,7 +44,7 @@ class Solution:
         # O(N) Time AND O(N) Space solution
         # res = [None]*len(nums)
         # for i in range(len(nums)):
-        #     res[(i+k)*n] = nums[i]
+        #     res[(i+k)%n] = nums[i]
         # return res
     
         # Optimized solution
