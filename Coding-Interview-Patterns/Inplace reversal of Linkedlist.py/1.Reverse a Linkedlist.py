@@ -20,6 +20,14 @@ def reverse_linkedlist(head):
         curr = curr_next
     print_linkedlist(prev)
     return prev
+def reverse_linkedlist_recursively(curr,prev=None):
+    if curr is None:
+        print_linkedlist(prev)
+        return prev
+    curr_next = curr.next
+    curr.next = prev
+    reverse_linkedlist_recursively(curr_next,curr)
+
 
 head = ListNode(0)
 head.next = ListNode(1)
@@ -28,6 +36,7 @@ head.next.next.next = ListNode(3)
 head.next.next.next.next = ListNode(4)
 head.next.next.next.next.next = ListNode(5)
 reverse_linkedlist(head)
+# reverse_linkedlist_recursively(head)
 
 # Time Complexity : O(N)
 # Space Complexity: O(1)
